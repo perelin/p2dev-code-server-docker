@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  code-server:
+    build: .
+    #image: codercom/code-server:v2
+    volumes:
+      - /home/ubuntu:/home/coder/project
+      - ./code-server/User:/home/coder/.local/share/code-server/User
+    ports:
+      - "8000-9000:8000-9000"
+      - "45441:45441"
+    environment:
+      - PASSWORD=goab1703
+    restart: always
+    command:
+      - "--auth none"
